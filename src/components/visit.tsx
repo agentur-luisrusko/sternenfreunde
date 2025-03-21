@@ -2,7 +2,7 @@ import Container from './visit/container';
 
 export default function Visit() {
     return (
-        <div>
+        <div className="col-start-1 col-end-6">
             <h1>Ihr Besuch</h1>
             {typeof window !== 'undefined' ? (
                 <iframe

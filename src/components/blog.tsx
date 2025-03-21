@@ -11,7 +11,7 @@ export default function Blog({ id }: BlogProps) {
     }
 
     return (
-        <div>
+        <div className='col-start-1 col-end-6'>
             <img src={blog.img} alt={blog.title} />
             {blog.title}
             <div dangerouslySetInnerHTML={{ __html: blog.content }} />

@@ -9,7 +9,7 @@ import Visit from "@/components/visit";
 export default function Home() {
   return (
     <>
-      <header>
+      <header className="col-start-1 col-end-6">
         <Navigation />
         <Header />
       </header>

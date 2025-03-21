@@ -73,7 +73,7 @@ const groupOpeningHours = (openingHours: { [key: string]: string }): string[] =>
 
 export default function Footer() {
     return (
-        <footer>
+        <footer className='col-start-1 col-end-6'>
             {FooterContent.map((container: ContentItem) => {
                 if (container.id === 'opening') {
                     const openingHours = container.content as { [key: string]: string };

@@ -12,11 +12,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="w-full max-w-[576px] mx-auto">
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/jak6kpc.css"></link>
       </head>
-      <body>
+      <body className="grid grid-cols-5 gap-4 mx-4">
         {children}
       </body>
     </html>
