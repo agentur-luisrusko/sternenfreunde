@@ -1,4 +1,6 @@
 import Program from "@/data/program.js";
+import Image from "next/image";
+import calenderIcon from "@/icon/calendar.svg";
 
 interface CardProps {
     id: number;
@@ -13,10 +15,15 @@ export default function Card({id}:  CardProps) {
     return (
         <div>
             <img src={card.img} alt={card.title} />
-            <h3>{card.title}</h3>
-            <div dangerouslySetInnerHTML={{ __html: card.content }} />
-            <a>{card.date}</a>
-            <a className="btn">{card.button}</a>
+            <div className="my-[24px] mx-[8px]">
+                <h3 className="mb-[16px]">{card.title}</h3>
+                <div dangerouslySetInnerHTML={{ __html: card.content }} className="mb-[24px]"/>
+                <a className="flex gap-[16px]">
+                    <Image src={calenderIcon} alt="Telefon" width={24} height={24} />
+                    {card.date}
+                </a>
+            </div>
+            <a className="btn flex py-[24px] w-full h-fit justify-center rounded-[8px]">{card.button}</a>
         </div>
     );
 }
