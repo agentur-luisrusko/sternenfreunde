@@ -22,6 +22,18 @@ const style = {
     padding: "16px",
 };
 
+const convertToInternationalPhoneNumber = (phoneNumber: string): string => {
+    const cleanedNumber = phoneNumber.replace(/\s+/g, '');
+
+    const numberWithoutLeadingZero = cleanedNumber.startsWith('0') ? cleanedNumber.slice(1) : cleanedNumber;
+
+    if (!numberWithoutLeadingZero.startsWith('+')) {
+        return `+49${numberWithoutLeadingZero}`; //
+    }
+
+    return numberWithoutLeadingZero;
+}
+
 const groupOpeningHours = (openingHours: { [key: string]: string }): string[] => {
     const days = ["mo", "di", "mi", "do", "fr", "sa", "so"];
     const daysOfWeek = {
@@ -114,7 +126,13 @@ export default function Container({ id }: ContainerProps) {
                 <ul className="flex flex-col gap-[8px]">
                     {Object.entries(entries).map(([key, value], index) => (
                         <li key={index} className="flex gap-[8px]">
-                            {keyMapping[key as keyof typeof keyMapping]} {value}
+                            {key === 'tel' ? (
+                                <a className="flex gap-[8px]" href={`tel:${convertToInternationalPhoneNumber(value)}`}>{keyMapping[key as keyof typeof keyMapping]} {value}</a>
+                            ) : key === 'email' ? (
+                                <a className="flex gap-[8px]" href={`mailto:${value}`}>{keyMapping[key as keyof typeof keyMapping]} {value}</a>
+                            ) : (
+                                <span>{value}</span>
+                            )}
                         </li>
                     ))}
                 </ul>

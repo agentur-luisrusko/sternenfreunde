@@ -137,6 +137,19 @@ span {
 .information-container ul li {
   font-size: 18px;
   line-height: 26px;
+  color: var(--text);
+}
+
+footer .information-container ul li a,
+#visit .information-container ul li a {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  color: var(--text);
+}
+
+footer .information-container ul li a:hover,
+#visit .information-container ul li a:hover {
+  color: var(--acent);
 }
 
 header {
