@@ -11,10 +11,12 @@ export default function Blog({ id }: BlogProps) {
     }
 
     return (
-        <div className='col-start-1 col-end-6'>
-            <img src={blog.img} alt={blog.title} />
-            <h3>{blog.title}</h3>
-            <div dangerouslySetInnerHTML={{ __html: blog.content }} />
+        <div className='col-start-1 col-end-6 mx-[16px] flex flex-col'>
+            <img src={blog.img} alt={blog.title} className='h-fit' />
+            <div className='mx-[8px] mt-[24px]'>
+                <h3 className='mb-[8px]'>{blog.title}</h3>
+                <div dangerouslySetInnerHTML={{ __html: blog.content }} />
+            </div>
         </div>
     );
 }
