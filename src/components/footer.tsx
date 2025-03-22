@@ -89,7 +89,7 @@ export default function Footer() {
                     return (
                         <div style={style} key={container.id}>
                             <h3>{container.title}</h3>
-                            <ul>
+                            <ul className='flex flex-col gap-[8px]'>
                                 {groupedHours.map((hours, index) => (
                                     <li key={index}>{hours}</li>
                                 ))}
@@ -108,7 +108,7 @@ export default function Footer() {
                     return (
                         <div style={style} key={container.id}>
                             <h3>{container.title}</h3>
-                            <ul>
+                            <ul className='flex flex-col gap-[8px]'>
                                 {Object.entries(entries).map(([key, value], index) => (
                                     <li key={index} className="flex gap-[8px]">
                                         {keyMapping[key as keyof typeof keyMapping]} {value}
