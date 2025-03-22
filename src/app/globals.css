@@ -25,6 +25,10 @@
   --gradient-acent: linear-gradient(90deg, #AF5685 0%, #7E3769 100%);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--primary);
 }
@@ -44,6 +48,10 @@ a {
 
 nav a {
   color: var(--secondary);
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 300;
+  font-family: 'Antonio', sans-serif;
 }
 
 nav a.active {

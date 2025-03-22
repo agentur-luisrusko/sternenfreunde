@@ -2,7 +2,7 @@ import Container from './visit/container';
 
 export default function Visit() {
     return (
-        <div className="col-start-1 col-end-6 px-[16px] bg-[var(--second-bg-color)]">
+        <div className="col-start-1 col-end-6 px-[16px] bg-[var(--second-bg-color)]" id="visit">
             <h2 className='mb-[24px]'>Ihr Besuch</h2>
             {typeof window !== 'undefined' ? (
                 <iframe
