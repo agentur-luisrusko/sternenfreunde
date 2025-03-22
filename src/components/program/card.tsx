@@ -13,8 +13,10 @@ export default function Card({id}:  CardProps) {
     return (
         <div>
             <img src={card.img} alt={card.title} />
-            <h1>{card.title}</h1>
+            <h3>{card.title}</h3>
             <div dangerouslySetInnerHTML={{ __html: card.content }} />
+            <a>{card.date}</a>
+            <a className="btn">{card.button}</a>
         </div>
     );
 }
