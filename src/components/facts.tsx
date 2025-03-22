@@ -5,7 +5,7 @@ import viewingIcon from "@/icon/viewingIcon.svg";
 
 export default function Facts() {
   return (
-    <div className="col-start-1 col-end-6 mx-[16px]">
+    <div className="col-start-1 col-end-6 mx-[16px] my-[80px]">
       <div className="grid grid-template-columns-2 grid-template-rows-2 gap-[16px]">
         <div className="col-start-1 col-end-2 row-start-1 row-end-2">
           <div className="mx-auto w-fit h-fit flex flex-col items-center gap-[16px]">

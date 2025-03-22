@@ -18,7 +18,7 @@ export default function Card({id}:  CardProps) {
             <div className="my-[24px] mx-[8px]">
                 <h3 className="mb-[16px]">{card.title}</h3>
                 <div dangerouslySetInnerHTML={{ __html: card.content }} className="mb-[24px]"/>
-                <a className="flex gap-[16px]">
+                <a className="flex gap-[16px] program-date">
                     <Image src={calenderIcon} alt="Telefon" width={24} height={24} />
                     {card.date}
                 </a>

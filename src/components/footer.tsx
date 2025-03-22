@@ -80,7 +80,7 @@ const groupOpeningHours = (openingHours: { [key: string]: string }): string[] =>
 
 export default function Footer() {
     return (
-        <footer className='col-start-1 col-end-6 flex flex-col gap-[24px]'>
+        <footer className='col-start-1 col-end-6 flex flex-col gap-[24px] my-[80px]'>
             {FooterContent.map((container: ContentItem) => {
                 if (container.id === 'opening') {
                     const openingHours = container.content as { [key: string]: string };
@@ -127,7 +127,7 @@ export default function Footer() {
                             <ul className="flex gap-[16px]">
                                 {links.map((link: LinkItem, index: number) => (
                                     <li key={index}>
-                                        <a href={link.link} className="text-blue-600 hover:underline">
+                                        <a href={link.link} className="">
                                             {link.title}
                                         </a>
                                     </li>

@@ -90,9 +90,9 @@ export default function Container({ id }: ContainerProps) {
         const groupedHours = groupOpeningHours(openingHours);
 
         return (
-            <div style={style}>
+            <div style={style} className="information-container">
                 <h3>{container.title}</h3>
-                <ul>
+                <ul className="flex flex-col gap-[8px]">
                     {groupedHours.map((hours, index) => (
                         <li key={index}>{hours}</li>
                     ))}
@@ -109,9 +109,9 @@ export default function Container({ id }: ContainerProps) {
         };
 
         return (
-            <div style={style}>
+            <div style={style} className="information-container">
                 <h3>{container.title}</h3>
-                <ul>
+                <ul className="flex flex-col gap-[8px]">
                     {Object.entries(entries).map(([key, value], index) => (
                         <li key={index} className="flex gap-[8px]">
                             {keyMapping[key as keyof typeof keyMapping]} {value}
@@ -131,9 +131,9 @@ export default function Container({ id }: ContainerProps) {
         };
 
         return (
-            <div style={style}>
+            <div style={style} className="information-container">
                 <h3>{container.title}</h3>
-                <ul>
+                <ul className="flex flex-col gap-[8px]">
                     {Object.entries(entries).map(([key, value], index) => (
                         <li key={index}>
                             {keyMapping[key as keyof typeof keyMapping]}: {value}
@@ -145,9 +145,9 @@ export default function Container({ id }: ContainerProps) {
     }
 
     return (
-        <div style={style}>
+        <div style={style} className="information-container">
             <h3>{container.title}</h3>
-            <ul>
+            <ul className="flex flex-col gap-[8px]">
                 {Object.entries(container.content).map(([key, value], index) => {
                     if (Array.isArray(value)) {
                         return (
@@ -155,7 +155,7 @@ export default function Container({ id }: ContainerProps) {
                                 <strong>{key}</strong>
                                 <ul>
                                     {value.map((item, itemIndex) => (
-                                        <li key={`${key}-${itemIndex}`}>{item}</li>
+                                        <li key={`${key}-${itemIndex}`}><p>{item}</p></li>
                                     ))}
                                 </ul>
                             </li>
@@ -166,7 +166,7 @@ export default function Container({ id }: ContainerProps) {
                             <li key={`${key}-${index}`}>
                                 <div className="flex gap-[8px]">
                                     {Object.entries(value).map(([subKey, subValue], subIndex) => (
-                                        <p key={`${key}-${subKey}-${subIndex}`}>
+                                        <p key={`${key}-${subKey}-${subIndex}`} className="information-container">
                                             {subValue}
                                         </p>
                                     ))}

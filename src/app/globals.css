@@ -14,6 +14,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Inter";
+  font-weight: 400;
+  src: url('/assets/font/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  font-style: normal;
+}
+
 :root {
   --primary: #00030E;
   --secondary: #EAECF7;
@@ -39,11 +46,17 @@ h1, h2, h3, h4, h5, h6, button, li{
 
 p {
   color: var(--text);
+  font-family: 'Inter', sans-serif;
 }
 
 a {
   color: var(--acent);
   text-decoration: none;
+}
+
+a.program-date {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
 }
 
 nav a {
@@ -52,6 +65,15 @@ nav a {
   line-height: 26px;
   font-weight: 300;
   font-family: 'Antonio', sans-serif;
+}
+
+footer a {
+  color: var(--secondary);
+  font-family: 'Antonio', sans-serif;
+}
+
+footer a:hover {
+  color: var(--acent);
 }
 
 nav a.active {
@@ -106,6 +128,15 @@ span {
   line-height: 32px;
   font-family: 'Anton', sans-serif;
   color: var(--secondary);
+}
+
+.information-container {
+  font-family: 'Inter', sans-serif;
+}
+
+.information-container ul li {
+  font-size: 18px;
+  line-height: 26px;
 }
 
 header {
