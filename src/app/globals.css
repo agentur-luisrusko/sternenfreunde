@@ -19,6 +19,7 @@
   --secondary: #EAECF7;
   --text: #868B95;
   --acent: #AF5685;
+  --second-bg-color: #091336;
 
   --gradient-button: linear-gradient(90deg, #3771CC 0%, #A152B6 100%);
   --gradient-acent: linear-gradient(90deg, #AF5685 0%, #7E3769 100%);
@@ -97,6 +98,10 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+nav {
+  background: var(--primary);
 }
 
 .block {

@@ -15,6 +15,13 @@ interface ContainerProps {
     id: string;
 }
 
+const style = {
+    display: "flex",
+    flexDirection: "column",
+    gap: "16px",
+    padding: "16px",
+};
+
 const groupOpeningHours = (openingHours: { [key: string]: string }): string[] => {
     const days = ["mo", "di", "mi", "do", "fr", "sa", "so"];
     const daysOfWeek = {
@@ -83,7 +90,7 @@ export default function Container({ id }: ContainerProps) {
         const groupedHours = groupOpeningHours(openingHours);
 
         return (
-            <div>
+            <div style={style}>
                 <h3>{container.title}</h3>
                 <ul>
                     {groupedHours.map((hours, index) => (
@@ -102,7 +109,7 @@ export default function Container({ id }: ContainerProps) {
         };
 
         return (
-            <div>
+            <div style={style}>
                 <h3>{container.title}</h3>
                 <ul>
                     {Object.entries(entries).map(([key, value], index) => (
@@ -124,7 +131,7 @@ export default function Container({ id }: ContainerProps) {
         };
 
         return (
-            <div>
+            <div style={style}>
                 <h3>{container.title}</h3>
                 <ul>
                     {Object.entries(entries).map(([key, value], index) => (
@@ -138,7 +145,7 @@ export default function Container({ id }: ContainerProps) {
     }
 
     return (
-        <div>
+        <div style={style}>
             <h3>{container.title}</h3>
             <ul>
                 {Object.entries(container.content).map(([key, value], index) => {
