@@ -11,6 +11,13 @@ interface ContentItem {
     };
 }
 
+const style = {
+    display: "flex",
+    flexDirection: "column",
+    gap: "16px",
+    padding: "16px",
+};
+
 interface ContainerProps {
     id: string;
 }
@@ -73,14 +80,14 @@ const groupOpeningHours = (openingHours: { [key: string]: string }): string[] =>
 
 export default function Footer() {
     return (
-        <footer className='col-start-1 col-end-6'>
+        <footer className='col-start-1 col-end-6 flex flex-col gap-[24px]'>
             {FooterContent.map((container: ContentItem) => {
                 if (container.id === 'opening') {
                     const openingHours = container.content as { [key: string]: string };
                     const groupedHours = groupOpeningHours(openingHours);
 
                     return (
-                        <div key={container.id}>
+                        <div style={style} key={container.id}>
                             <h3>{container.title}</h3>
                             <ul>
                                 {groupedHours.map((hours, index) => (
@@ -99,7 +106,7 @@ export default function Footer() {
                     };
 
                     return (
-                        <div key={container.id}>
+                        <div style={style} key={container.id}>
                             <h3>{container.title}</h3>
                             <ul>
                                 {Object.entries(entries).map(([key, value], index) => (
@@ -116,8 +123,8 @@ export default function Footer() {
                     const links = container.content as { title: string; link: string }[];
 
                     return (
-                        <div key={container.id}>
-                            <ul className="space-y-2">
+                        <div key={container.id} className='flex px-[16px]'>
+                            <ul className="flex gap-[16px]">
                                 {links.map((link: LinkItem, index: number) => (
                                     <li key={index}>
                                         <a href={link.link} className="text-blue-600 hover:underline">
