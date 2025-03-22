@@ -93,6 +93,13 @@ header p {
   color: transparent;
 }
 
+span {
+  font-size: 24px;
+  line-height: 32px;
+  font-family: 'Anton', sans-serif;
+  color: var(--secondary);
+}
+
 header {
   background-image: url('/assets/img/header-bg.png');
   background-position: center;
@@ -110,4 +117,16 @@ nav {
 
 .hidden {
   display: none;
+}
+
+.fact-icon-card {
+  width: 100px;
+  height: 100px;
+  border: 4px solid var(--acent);
+  border-radius: 50%;
+  box-sizing: border-box;
+  background-color: var(--second-bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
