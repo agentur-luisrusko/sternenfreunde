@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "anton", sans-serif;
+  font-family: "Anton";
   font-weight: 400;
+  src: url('/assets/font/Anton-regular.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Antonio";
+  font-weight: 400;
+  src: url('/assets/font/Antonio-VariableFont_wght.ttf') format('truetype');
   font-style: normal;
 }
 
@@ -53,6 +61,42 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 72px;
   line-height: 80px;
+}
+
+header p {
+  font-size: 24px;
+  line-height: 32px;
+  font-family: 'Antonio', sans-serif;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 48px;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 26px;
+}
+
+header p {
+  background: var(--gradient-acent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+header {
+  background-image: url('/assets/img/header-bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .block {

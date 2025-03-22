@@ -81,7 +81,7 @@ export default function Footer() {
 
                     return (
                         <div key={container.id}>
-                            <h2>{container.title}</h2>
+                            <h3>{container.title}</h3>
                             <ul>
                                 {groupedHours.map((hours, index) => (
                                     <li key={index}>{hours}</li>
@@ -100,7 +100,7 @@ export default function Footer() {
 
                     return (
                         <div key={container.id}>
-                            <h2>{container.title}</h2>
+                            <h3>{container.title}</h3>
                             <ul>
                                 {Object.entries(entries).map(([key, value], index) => (
                                     <li key={index} className="flex gap-[8px]">

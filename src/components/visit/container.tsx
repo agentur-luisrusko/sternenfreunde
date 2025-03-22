@@ -84,7 +84,7 @@ export default function Container({ id }: ContainerProps) {
 
         return (
             <div>
-                <h2>{container.title}</h2>
+                <h3>{container.title}</h3>
                 <ul>
                     {groupedHours.map((hours, index) => (
                         <li key={index}>{hours}</li>
@@ -103,7 +103,7 @@ export default function Container({ id }: ContainerProps) {
 
         return (
             <div>
-                <h2>{container.title}</h2>
+                <h3>{container.title}</h3>
                 <ul>
                     {Object.entries(entries).map(([key, value], index) => (
                         <li key={index} className="flex gap-[8px]">
@@ -125,7 +125,7 @@ export default function Container({ id }: ContainerProps) {
 
         return (
             <div>
-                <h2>{container.title}</h2>
+                <h3>{container.title}</h3>
                 <ul>
                     {Object.entries(entries).map(([key, value], index) => (
                         <li key={index}>
@@ -139,7 +139,7 @@ export default function Container({ id }: ContainerProps) {
 
     return (
         <div>
-            <h2>{container.title}</h2>
+            <h3>{container.title}</h3>
             <ul>
                 {Object.entries(container.content).map(([key, value], index) => {
                     if (Array.isArray(value)) {

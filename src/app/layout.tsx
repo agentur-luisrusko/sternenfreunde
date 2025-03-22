@@ -13,10 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="w-full max-w-[576px] mx-auto">
-      <head>
-        <link rel="stylesheet" href="https://use.typekit.net/jak6kpc.css"></link>
-      </head>
-      <body className="grid grid-cols-5 gap-4 mx-4">
+      <body className="grid grid-cols-5 gap-[16px]">
         {children}
       </body>
     </html>
