@@ -12,7 +12,7 @@ export default function Navigation() {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    const scrollToSection = (sectionId, event) => {
+    const scrollToSection = (sectionId: string, event: React.MouseEvent) => {
         event.preventDefault();
 
         const section = document.getElementById(sectionId);

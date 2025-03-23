@@ -3,19 +3,11 @@ import Image from "next/image";
 import phoneIcon from "@/icon/phone.svg";
 import mailIcon from "@/icon/mail.svg";
 
-interface ContentItem {
-    id: string;
-    title: string;
-    content: {
-        [key: string]: string | number | { [key: string]: string | number } | string[];
-    };
-}
-
 interface ContainerProps {
     id: string;
 }
 
-const style = {
+const style: React.CSSProperties = {
     display: "flex",
     flexDirection: "column",
     gap: "16px",
@@ -36,7 +28,7 @@ const convertToInternationalPhoneNumber = (phoneNumber: string): string => {
 
 const groupOpeningHours = (openingHours: { [key: string]: string }): string[] => {
     const days = ["mo", "di", "mi", "do", "fr", "sa", "so"];
-    const daysOfWeek = {
+    const daysOfWeek: { [key: string]: string } = {
         mo: "Montag",
         di: "Dienstag",
         mi: "Mittwoch",
@@ -98,7 +90,9 @@ export default function Container({ id }: ContainerProps) {
     }
 
     if (container.id === 'opening') {
-        const openingHours = container.content as { [key: string]: string };
+        const openingHours = Object.fromEntries(
+            Object.entries(container.content).filter(([_, value]) => typeof value === 'string')
+        ) as { [key: string]: string };
         const groupedHours = groupOpeningHours(openingHours);
 
         return (
@@ -114,7 +108,7 @@ export default function Container({ id }: ContainerProps) {
     }
 
     if (container.id === 'contact') {
-        const entries = container.content as { [key: string]: string };
+        const entries = container.content;
         const keyMapping = {
             tel: <Image src={phoneIcon} alt="Beschreibung" width={24} height={24} />,
             email: <Image src={mailIcon} alt="Beschreibung" width={24} height={24} />,
@@ -141,7 +135,7 @@ export default function Container({ id }: ContainerProps) {
     }
 
     if (container.id === 'entries') {
-        const entries = container.content as { [key: string]: string };
+        const entries = container.content;
         const keyMapping = {
             erw: "Erwachsener",
             erm: "Ermäßigt",
@@ -185,7 +179,7 @@ export default function Container({ id }: ContainerProps) {
                                 <div className="flex gap-[8px]">
                                     {Object.entries(value).map(([subKey, subValue], subIndex) => (
                                         <p key={`${key}-${subKey}-${subIndex}`} className="information-container">
-                                            {subValue}
+                                            {subValue !== undefined && subValue !== null ? subValue.toString() : ""}
                                         </p>
                                     ))}
                                 </div>

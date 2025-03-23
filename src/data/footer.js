@@ -1,6 +1,7 @@
 const FooterContent = [
     {
         id: 'links',
+        title: '',
         content: [
             {
                 title: 'Datenschutz',

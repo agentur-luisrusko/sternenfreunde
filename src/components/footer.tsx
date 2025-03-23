@@ -3,32 +3,24 @@ import Image from 'next/image';
 import phoneIcon from '@/icon/phone.svg';
 import mailIcon from '@/icon/mail.svg';
 
-interface ContentItem {
-    id: string;
+interface LinkItem {
     title: string;
-    content: {
-        [key: string]: string | number | { [key: string]: string | number } | string[];
-    };
+    link: string;
 }
 
-const style = {
+const style: React.CSSProperties = {
     display: "flex",
     flexDirection: "column",
     gap: "16px",
     padding: "16px",
 };
 
-interface ContainerProps {
-    id: string;
-}
-
 const convertToInternationalPhoneNumber = (phoneNumber: string): string => {
     const cleanedNumber = phoneNumber.replace(/\s+/g, '');
-
     const numberWithoutLeadingZero = cleanedNumber.startsWith('0') ? cleanedNumber.slice(1) : cleanedNumber;
 
     if (!numberWithoutLeadingZero.startsWith('+')) {
-        return `+49${numberWithoutLeadingZero}`; //
+        return `+49${numberWithoutLeadingZero}`;
     }
 
     return numberWithoutLeadingZero;
@@ -36,7 +28,7 @@ const convertToInternationalPhoneNumber = (phoneNumber: string): string => {
 
 const groupOpeningHours = (openingHours: { [key: string]: string }): string[] => {
     const days = ["mo", "di", "mi", "do", "fr", "sa", "so"];
-    const daysOfWeek = {
+    const daysOfWeek: { [key: string]: string } = {
         mo: "Montag",
         di: "Dienstag",
         mi: "Mittwoch",
@@ -90,12 +82,22 @@ const groupOpeningHours = (openingHours: { [key: string]: string }): string[] =>
     return groupedHours;
 };
 
+// Type guard to check if the content is an object with string values (Opening Hours)
+function isOpeningHours(content: any): content is { [key: string]: string } {
+    return typeof content === 'object' && content !== null && !Array.isArray(content) && Object.values(content).every(val => typeof val === 'string');
+}
+
+// Type guard to check if the content is an object with string values for contact info (tel, email)
+function isContactInfo(content: any): content is { tel: string; email: string } {
+    return typeof content === 'object' && content !== null && 'tel' in content && 'email' in content && typeof content.tel === 'string' && typeof content.email === 'string';
+}
+
 export default function Footer() {
     return (
         <footer className='col-start-1 col-end-6 flex flex-col gap-[24px] my-[80px]'>
-            {FooterContent.map((container: ContentItem) => {
-                if (container.id === 'opening') {
-                    const openingHours = container.content as { [key: string]: string };
+            {FooterContent.map((container) => {
+                if (container.id === 'opening' && isOpeningHours(container.content)) {
+                    const openingHours = container.content;
                     const groupedHours = groupOpeningHours(openingHours);
 
                     return (
@@ -110,8 +112,8 @@ export default function Footer() {
                     );
                 }
 
-                if (container.id === 'contact') {
-                    const entries = container.content as { [key: string]: string };
+                if (container.id === 'contact' && isContactInfo(container.content)) {
+                    const entries = container.content;
                     const keyMapping = {
                         tel: <Image src={phoneIcon} alt="Telefon" width={24} height={24} />,
                         email: <Image src={mailIcon} alt="E-Mail" width={24} height={24} />,
@@ -138,16 +140,14 @@ export default function Footer() {
                 }
 
                 if (container.id === 'links') {
-                    const links = container.content as { title: string; link: string }[];
+                    const links = container.content as LinkItem[];
 
                     return (
                         <div key={container.id} className='flex px-[16px]'>
                             <ul className="flex gap-[16px]">
-                                {links.map((link: LinkItem, index: number) => (
+                                {links.map((link, index) => (
                                     <li key={index}>
-                                        <a href="" className="">
-                                            {link.title}
-                                        </a>
+                                        <a href={link.link} className="">{link.title}</a>
                                     </li>
                                 ))}
                             </ul>
